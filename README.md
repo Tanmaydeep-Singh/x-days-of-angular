@@ -13,3 +13,9 @@
 - Create component:
 `` ng generate component MYCOMPONENT ``
 
+- Create service:
+`` ng generate service service-name ``
+
+
+
+
