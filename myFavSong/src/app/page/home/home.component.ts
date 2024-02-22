@@ -1,15 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-
-interface Post {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
-
+import { DataService } from '../../services/data.service';
+import { Post } from '../../model/post';
 
 @Component({
   selector: 'app-home',
@@ -22,36 +15,12 @@ export class HomeComponent implements OnInit {
   posts: Post[] = [];
 
   
-  constructor(private http: HttpClient) { }
+  constructor(private dataService: DataService) { }
 
-  ngOnInit(): void {
 
-    this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-      .subscribe(posts => {
+    ngOnInit(): void {
+      this.dataService.getPosts().subscribe(posts => {
         this.posts = posts;
       });
-  }
+     }
 }
-
-// import { Component, OnInit } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-
-
-// @Component({
-//   selector: 'app-home',
-//   templateUrl: './home.component.html',
-//   styleUrl: './home.component.css'
-// })
-
-// export class HomeComponent implements OnInit {
-
-
-//   ngOnInit(): void {
-//     this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
-//       .subscribe(posts => {
-//         console.log("api called");
-//         this.posts = posts;
-//       });
-//   }
-
-// }
