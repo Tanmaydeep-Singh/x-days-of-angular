@@ -1,0 +1,9 @@
+<h2 class="text-3xl font-bold underline" >Posts</h2>
+    <ul>
+        <li *ngFor="let post of posts">
+            <div class="p-5">
+            <h3 class=" text-lg text-orange-300 font-semibold">{{ post.title }}</h3>
+            <p>{{ post.body }}</p>
+        </div>
+        </li>
+    </ul>
