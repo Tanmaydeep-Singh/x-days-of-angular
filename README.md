@@ -16,6 +16,9 @@
 - Create service:
 `` ng generate service service-name ``
 
+- Create module:
+`` ng generate module module-name ``
+
 
 
 
